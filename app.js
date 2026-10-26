@@ -85,7 +85,6 @@ const editTask = function () {
     editButton.innerText = "Save";
   }
 
-  //toggle .editmode on the parent.
   listItem.classList.toggle("editMode");
 };
 
@@ -93,7 +92,6 @@ const editTask = function () {
 const deleteTask = function () {
   const listItem = this.parentNode;
   const taskList = listItem.parentNode;
-  //Remove the parent list item from the ul.
   taskList.removeChild(listItem);
 };
 
@@ -107,22 +105,15 @@ const moveTaskToList = function (
   bindTaskEvents(listItem, nextCheckboxHandler);
 };
 
-//Mark task completed
 const taskCompleted = function () {
-  //Append the task list item to the #completed-tasks
   moveTaskToList(this, completedTasksHolder, taskIncomplete);
 };
 
 const taskIncomplete = function () {
-  //Mark task as incomplete.
   //When the checkbox is unchecked
-  //Append the task list item to the #incompleteTasks.
   moveTaskToList(this, incompleteTaskHolder, taskCompleted);
 };
 
-//The glue to hold it all together.
-
-//Set the click handler to the addTask function.
 addButton.addEventListener("click", addTask);
 
 const bindTaskEvents = function (taskListItem, checkboxChangeHandler) {
